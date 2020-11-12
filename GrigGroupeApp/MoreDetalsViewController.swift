@@ -16,6 +16,7 @@ class MoreDetalsViewController: UIViewController {
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var fotoImage: UIImageView!
     
+    var selectedMeal: Meal!
     
     // Чтобы получить параметры нужно определить их
     var name: String?
@@ -27,11 +28,15 @@ class MoreDetalsViewController: UIViewController {
         super.viewDidLoad()
         
         // Чтобы получить параметры после загрузки
-        nameLable.text = name!
-        descriptionLable.text = descript!
-        priceLable.text = price!
-        fotoImage.image = image!
+        nameLable.text = selectedMeal.name
+        descriptionLable.text = selectedMeal.desc
+        priceLable.text = String(selectedMeal.price)
+        fotoImage.image = UIImage(named: selectedMeal.imageName!)
     }
     
-
+    @IBAction func addButton(_ sender: Any) {
+        selectedMeal.isAdded = true
+        DatabaseManager.instance.updateMeal()
+    }
+    
 }

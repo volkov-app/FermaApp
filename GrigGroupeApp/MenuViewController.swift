@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 
@@ -15,17 +16,66 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var viewCell: UIView!
     
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     //Задаём наши названия
-    var names = ["Яичница","Пельмени","Суп","Паста Карбонара"]
-    var prices = ["100P","199P","300P","450"]
-    var descriptions = ["Глазунья пожаренная без масла","Говядина и свинина","Капуста, свекла, курица, картошка","Спагетти из твёрдых сортов пшеници и бекон"]
-    var images: [UIImage] = [#imageLiteral(resourceName: "food"),#imageLiteral(resourceName: "food2"),#imageLiteral(resourceName: "food"),#imageLiteral(resourceName: "food2")]
+//    var meals: [MealObject] = [MealObject(name: "Eggs",
+//                                          price: 125,
+//                                          description: "blablabla",
+//                                          image: UIImage(named: "GrigGroupe")!,
+//                                          isAdded: nil),
+//                               MealObject(name: "Eggs2",
+//                                          price: 2125,
+//                                          description: "1blablabla",
+//                                          image: UIImage(named: "Mask Group-1")!,
+//                                          isAdded: nil)
+//    ]
+    var meals: [Meal] = []
+    
+    
+    func splitMeals(_ meals: [Meal]) -> [Meal] {
+        var result: [Meal] = []
+        
+        let unaddedMeal = meals.filter {
+            $0.isAdded == false
+        }
+        
+        result.append(contentsOf: unaddedMeal)
+        
+        return result
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fecthData()
+    }
+    
+    func fecthData() {
+        DatabaseManager.instance.fetchData { (done, meals) in
+            if done, let allMeal = meals {
+                self.meals = splitMeals(allMeal)
+            }
+        }
+        tableView.reloadData()
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        DatabaseManager.instance.saveMeal(object: MealObject(name: "Eggs",
+                                                              price: 125,
+                                                              description: "blablabla",
+                                                              image: "GrigGroupe",
+                                                              isAdded: nil)) { (done) in
+            if done {
+                print("All is okay")
+                fecthData()
+            } else {
+                print("something wrong")
+            }
+        }
         }
    
     }
@@ -33,7 +83,7 @@ class MenuViewController: UIViewController {
 //Показываем колличество клеток
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return meals.count
         }
     
 // какой индекс у ячейки
@@ -41,24 +91,27 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         
 //присваиваем каждой ячейки свои значения
-        cell.nameCell.text = names[indexPath.row]
-        cell.priceCell.text = prices[indexPath.row]
-        cell.descriptionCell.text = descriptions[indexPath.row]
-        cell.imageInCell.image = images[indexPath.row]
+        cell.nameCell.text = meals[indexPath.row].name
+        cell.priceCell.text = String(meals[indexPath.row].price)
+        cell.descriptionCell.text = meals[indexPath.row].desc
+        cell.imageInCell.image = UIImage(named: meals[indexPath.row].imageName!)
         
         return cell
-    
+        
         
     }
-    //hehj
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: "MoreDetalsViewController") as! MoreDetalsViewController
-        nextVC.name = names[indexPath.row]
-        nextVC.price = prices[indexPath.row]
-        nextVC.descript = descriptions[indexPath.row]
-        nextVC.image = images[indexPath.row]
+//        nextVC.name = meals[indexPath.row].name
+//        nextVC.price = String(meals[indexPath.row].price)
+//        nextVC.descript = meals[indexPath.row].descriptionOfMeal
+//        nextVC.image = meals[indexPath.row].image
+        
+        //Передаем объект meals на следующий экран
+        nextVC.selectedMeal = meals[indexPath.row]
         
         
         navigationController?.pushViewController(nextVC, animated: true)
