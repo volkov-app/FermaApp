@@ -33,12 +33,13 @@ class MenuViewController: UIViewController {
 //    ]
     var meals: [Meal] = []
     
-    
+    //сотрируем оставляя только отсортированное
     func splitMeals(_ meals: [Meal]) -> [Meal] {
         var result: [Meal] = []
         
+        //Сюда будем записывать отфильтрованное блюдо
         let unaddedMeal = meals.filter {
-            $0.isAdded == false
+            $0.isAdded == false // $0. проход по каждому элементу
         }
         
         result.append(contentsOf: unaddedMeal)
@@ -48,8 +49,9 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fecthData()
+        fecthData() //чтобы обновлялось каждый раз как заходим на экран
     }
+    
     
     func fecthData() {
         DatabaseManager.instance.fetchData { (done, meals) in
