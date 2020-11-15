@@ -23,6 +23,7 @@
 		74E327E125473AEB005C4A45 /* ShopingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E025473AEB005C4A45 /* ShopingViewController.swift */; };
 		74E327E725473C29005C4A45 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E625473C29005C4A45 /* ProfileViewController.swift */; };
 		74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E9254745ED005C4A45 /* TableViewCell.swift */; };
+		FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmeals.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		74E327E025473AEB005C4A45 /* ShopingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingViewController.swift; sourceTree = "<group>"; };
 		74E327E625473C29005C4A45 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74E327E9254745ED005C4A45 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FAF881A52561AAA00045ACB7 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				372ED8B1255DB589008B3C00 /* MealObject.swift */,
 				74E327A42547276D005C4A45 /* AppDelegate.swift */,
+				FAF881A52561AAA00045ACB7 /* tableofmeals.csv */,
 				74078F7E254B63FE00A242F8 /* classes */,
 				74E327A62547276D005C4A45 /* SceneDelegate.swift */,
 				74E327AA2547276D005C4A45 /* Main.storyboard */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E327B12547276F005C4A45 /* LaunchScreen.storyboard in Resources */,
+				FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */,
 				74E327AC2547276D005C4A45 /* Main.storyboard in Resources */,
 				74D565892549E70B00A33B3A /* Media.xcassets in Resources */,
 			);

@@ -66,4 +66,16 @@ class DatabaseManager {
         }
         
     }
+    
+    func deleteMeal(meal: Meal) {
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.delete(meal)
+        do {
+            try managedContext.save()
+            print("Data deleted")
+        } catch {
+            print("Failed to delete data: ", error.localizedDescription)
+        }
+    }
 }
