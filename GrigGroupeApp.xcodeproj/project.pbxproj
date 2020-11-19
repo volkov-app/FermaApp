@@ -10,6 +10,7 @@
 		372ED8B2255DB589008B3C00 /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B1255DB589008B3C00 /* MealObject.swift */; };
 		372ED8BA255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B8255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld */; };
 		372ED8BD255DC3C3008B3C00 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */; };
+		37454C852566E17B005A1AE4 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = 37454C842566E17B005A1AE4 /* tableofmeals.csv */; };
 		742E116B254C5FBD00F82C42 /* MoreDetalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E116A254C5FBD00F82C42 /* MoreDetalsViewController.swift */; };
 		742E116E254C857800F82C42 /* UIView extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E116D254C857800F82C42 /* UIView extention.swift */; };
 		74751E242555B1F500ABD4DC /* infoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74751E232555B1F500ABD4DC /* infoTableViewController.swift */; };
@@ -23,13 +24,14 @@
 		74E327E125473AEB005C4A45 /* ShopingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E025473AEB005C4A45 /* ShopingViewController.swift */; };
 		74E327E725473C29005C4A45 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E625473C29005C4A45 /* ProfileViewController.swift */; };
 		74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E9254745ED005C4A45 /* TableViewCell.swift */; };
-		FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmeals.csv */; };
+		FAF881A62561AAA00045ACB7 /* tableofmealsLast.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmealsLast.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		372ED8B1255DB589008B3C00 /* MealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
 		372ED8B9255DC35F008B3C00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		37454C842566E17B005A1AE4 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
 		742E116A254C5FBD00F82C42 /* MoreDetalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetalsViewController.swift; sourceTree = "<group>"; };
 		742E116D254C857800F82C42 /* UIView extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView extention.swift"; sourceTree = "<group>"; };
 		74751E232555B1F500ABD4DC /* infoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		74E327E025473AEB005C4A45 /* ShopingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingViewController.swift; sourceTree = "<group>"; };
 		74E327E625473C29005C4A45 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74E327E9254745ED005C4A45 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		FAF881A52561AAA00045ACB7 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
+		FAF881A52561AAA00045ACB7 /* tableofmealsLast.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmealsLast.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,8 @@
 			children = (
 				372ED8B1255DB589008B3C00 /* MealObject.swift */,
 				74E327A42547276D005C4A45 /* AppDelegate.swift */,
-				FAF881A52561AAA00045ACB7 /* tableofmeals.csv */,
+				37454C842566E17B005A1AE4 /* tableofmeals.csv */,
+				FAF881A52561AAA00045ACB7 /* tableofmealsLast.csv */,
 				74078F7E254B63FE00A242F8 /* classes */,
 				74E327A62547276D005C4A45 /* SceneDelegate.swift */,
 				74E327AA2547276D005C4A45 /* Main.storyboard */,
@@ -166,7 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E327B12547276F005C4A45 /* LaunchScreen.storyboard in Resources */,
-				FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */,
+				37454C852566E17B005A1AE4 /* tableofmeals.csv in Resources */,
+				FAF881A62561AAA00045ACB7 /* tableofmealsLast.csv in Resources */,
 				74E327AC2547276D005C4A45 /* Main.storyboard in Resources */,
 				74D565892549E70B00A33B3A /* Media.xcassets in Resources */,
 			);

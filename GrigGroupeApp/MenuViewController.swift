@@ -44,7 +44,8 @@ class MenuViewController: UIViewController {
                                                                  price: Int(meal[3])!,
                                                                  description: meal[2],
                                                                  image: meal[0],
-                                                                 isAdded: nil))
+                                                                 isAdded: nil,
+                                                                 category: meal[4]))
             { (done) in
                 if done {
                     print("All is okay")

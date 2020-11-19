@@ -13,20 +13,21 @@ class MealObject: NSObject {
     var price = 100
     var descriptionOfMeal = "Описание"
     var imageName = "GrigGroup"
+    var category = "Category"
 
     
     //свойство на явность элементов в корзине
     var isAdded: Bool? = false
     
     
-    init(name: String, price: Int, description: String, image: String, isAdded: Bool?) {
+    init(name: String, price: Int, description: String, image: String, isAdded: Bool?, category: String) {
         super.init() //Объявляет что это самый главный init
         
         self.name = name
         self.price = price
         self.descriptionOfMeal = description
         self.imageName = image
-        
+        self.category = category
         self.isAdded = isAdded ?? false
     }
 }
