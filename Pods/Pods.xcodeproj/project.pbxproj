@@ -44,16 +44,16 @@
 		4D33DD3908FA544F294024AB4150AD13 /* String+Lines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Lines.swift"; path = "SwiftCSV/String+Lines.swift"; sourceTree = "<group>"; };
 		4EC1A17313467692513DF3C7C0488069 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SwiftCSV/Parser.swift; sourceTree = "<group>"; };
 		54DE705C92D7D2D35F65FB4767C55DA7 /* SwiftCSV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCSV-umbrella.h"; sourceTree = "<group>"; };
-		5A6CBEAC7212DCE694AC28667C36D2D1 /* SwiftCSV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftCSV.framework; path = SwiftCSV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6CBEAC7212DCE694AC28667C36D2D1 /* SwiftCSV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCSV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7538B283A38436EE31A7E3A55E2B2D /* Pods-GrigGroupeApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GrigGroupeApp-dummy.m"; sourceTree = "<group>"; };
 		709EC0482228BD39C3A0D472FB9035DF /* SwiftCSV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftCSV.modulemap; sourceTree = "<group>"; };
 		7154B8DA88D962C11C2C8D17D03C7B83 /* Pods-GrigGroupeApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GrigGroupeApp-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		80B1CCEA162FF0E5C5B2EFBCC0A27F38 /* Pods-GrigGroupeApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GrigGroupeApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		86D3910370E36CBD22FFA0E61D42A562 /* Pods_GrigGroupeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GrigGroupeApp.framework; path = "Pods-GrigGroupeApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D3910370E36CBD22FFA0E61D42A562 /* Pods_GrigGroupeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrigGroupeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8D185C6D8B0F3F2632E3D9B33EC45A /* Pods-GrigGroupeApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GrigGroupeApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		98D8BAFCE1BED48BB5435ED5728D71F4 /* Pods-GrigGroupeApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GrigGroupeApp-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A3711890EFA64BB6D397EFCE4BF06977 /* Pods-GrigGroupeApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GrigGroupeApp.modulemap"; sourceTree = "<group>"; };
 		C578575FD21F8D758157C2B9FF54146B /* Pods-GrigGroupeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrigGroupeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C6A12861A7AD26E770421EDCDF7CB70C /* ParsingState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsingState.swift; path = SwiftCSV/ParsingState.swift; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 				4D33DD3908FA544F294024AB4150AD13 /* String+Lines.swift */,
 				0A3D164F168DCE8490382F0C953781A2 /* Support Files */,
 			);
-			name = SwiftCSV;
 			path = SwiftCSV;
 			sourceTree = "<group>";
 		};
@@ -336,7 +335,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GrigGroupeApp/Pods-GrigGroupeApp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Target Support Files/SwiftCSV/SwiftCSV-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -373,7 +372,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GrigGroupeApp/Pods-GrigGroupeApp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Target Support Files/SwiftCSV/SwiftCSV-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

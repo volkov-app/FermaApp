@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwiftCSV
 
 class MenuViewController: UIViewController {
     
@@ -15,23 +16,30 @@ class MenuViewController: UIViewController {
      @IBOutlet weak var tableView: UITableView!
     
     var sectionsOfMeals: [[Meal]] = []
-    var meals: [Meal] = []
+    var mealsCoreData: [Meal] = []
+    
+    var meals: [[String: String]] = []
+    
+    
     
     func splitMealsToSections(_ mealsArray: [Meal]) -> [[Meal]] {
         var result: [[Meal]] = []
         
         let soupMeals = mealsArray.filter {
-            $0.price < 550
+            $0.category == "ПИЦЦА"
         }
-        
-        let otherMeals = mealsArray.filter {
-            $0.price > 550
+//
+//        let otherMeals = mealsArray.filter {
+//            $0.category != "ПИЦЦА"
+//        }
+        let cheeseMeetMeals = mealsArray.filter {
+            $0.category == "СЫРЫ & МЯСО"
         }
         
         result.append(soupMeals)
         
-        result.append(otherMeals)
-        
+        result.append(cheeseMeetMeals)
+        //print(soupMeals)
         return result
     }
     
@@ -40,11 +48,12 @@ class MenuViewController: UIViewController {
         let mealsArray = getArray()
         mealsArray.forEach { (meal) in
             
-            DatabaseManager.instance.saveMeal(object: MealObject(name: meal[1],
-                                                                 price: Int(meal[3])!,
-                                                                 description: meal[2],
-                                                                 image: meal[0],
-                                                                 isAdded: nil))
+            DatabaseManager.instance.saveMeal(object: MealObject(name: meal["name"]!,
+                                                                 price: Int(meal["price"]!)!,
+                                                                 description: meal["description"]!,
+                                                                 image: meal["id"]!,
+                                                                 isAdded: nil,
+                                                                 category: meal["category"]!))
             { (done) in
                 if done {
                     print("All is okay")
@@ -81,8 +90,8 @@ class MenuViewController: UIViewController {
     func fecthData() {
         DatabaseManager.instance.fetchData { (done, meals) in
             if done, let allMeal = meals {
-                self.meals = splitMeals(allMeal)
-                self.sectionsOfMeals = splitMealsToSections(self.meals)
+                self.mealsCoreData = splitMeals(allMeal)
+                self.sectionsOfMeals = splitMealsToSections(self.mealsCoreData)
             }
         }
         tableView.reloadData()
@@ -93,60 +102,35 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         fecthData()
+//        fromCSVToArray()
         
-//        meals.forEach { (meal) in
-//            DatabaseManager.instance.deleteMeal(meal: meal)
-//        }
+        // чтобы обновить список нужно раскоментить а потом закрыть
+       mealsCoreData.forEach { (meal) in
+            DatabaseManager.instance.deleteMeal(meal: meal)
+        }
 //
 //
-//        createNewMeals()
+        createNewMeals()
 //
 //
-//        fecthData()
+        fecthData()
     }
     
 }
 
-func getArray() -> [[String]] {
+func getArray() -> [[String: String]] {
     
     //Массив из обьектов с их параметрами
-    var dataArray : [[String]] = []
+    var dataArray : [[String: String]] = []
     
-    //Массив из одиного обьекта с его параметрами
-    var itemParametrsArray: [String] = []
     
-    if let path = Bundle.main.path(forResource: "tableofmeals", ofType: "csv") {
+    do {
         
-        let url = URL(fileURLWithPath: path)
+        let csvFile: CSV = try CSV(url: URL(fileURLWithPath: "/Users/volkov/FermaApp/GrigGroupeApp/menu.csv"))
+        dataArray = csvFile.namedRows
+    } catch  {
         
-        do {
-            let data = try Data(contentsOf: url)
-            let dataEncoded = String(data: data, encoding: .utf8)
-            if var dataArr = dataEncoded?.components(separatedBy: "\r\n").map({ $0.components(separatedBy: ";") })
-            {
-                dataArr.remove(at: dataArr.count-1)
-                dataArr.forEach { (line) in
-                    
-                    
-                    itemParametrsArray = []
-                    
-                    let str = line.first?.split(separator: ",")
-                    
-                    
-                    str?.forEach({ (some) in
-                        let value = String(some)
-                        
-                        itemParametrsArray.append(value)
-                    })
-                    
-                    dataArray.append(itemParametrsArray)
-                }
-                
-            }
-        }
-        catch let jsonErr {
-            print("\n Error read CSV file: \n ", jsonErr)
-        }
+        print(error.localizedDescription)
     }
     
     return dataArray
@@ -156,6 +140,7 @@ func getArray() -> [[String]] {
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
         return sectionsOfMeals[section].count
     }
     
@@ -164,10 +149,14 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return "Дорого"
-        } else {
-            return "Дешево"
+        
+        switch section {
+        case 0:
+            return "Pizza"
+        case 1:
+            return "Cheese & Meet"
+        default:
+            return "Other"
         }
     }
     
@@ -175,13 +164,13 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         
-        let section = sectionsOfMeals[indexPath.section]
+        let meal = sectionsOfMeals[indexPath.section][indexPath.row]
         
-        //присваиваем каждой ячейки свои значения
-        cell.nameCell.text = section[indexPath.row].name
-        cell.priceCell.text = String(section[indexPath.row].price)
-        cell.descriptionCell.text = section[indexPath.row].desc
-        cell.imageInCell.image = UIImage(named: section[indexPath.row].imageName!)
+        //присваиваем каждой ячейки свои значениz
+        cell.nameCell.text = meal.name
+        cell.priceCell.text = String(meal.price)
+        cell.descriptionCell.text = meal.desc
+        cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
         
         return cell
     }
@@ -191,8 +180,11 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: "MoreDetalsViewController") as! MoreDetalsViewController
         
+        let meal = mealsCoreData[indexPath.row]
+        
         //Передаем объект meals на следующий экран
-        nextVC.selectedMeal = sectionsOfMeals[indexPath.section][indexPath.row]
+        nextVC.selectedMeal = meal
+//            Meal(name: meal["name"], price: Int(meal["price"]), description: meal["description"], image: meal["id"], isAdded: nil)
         
         
         navigationController?.pushViewController(nextVC, animated: true)

@@ -23,6 +23,7 @@ class DatabaseManager {
         meal.desc = object.descriptionOfMeal
         meal.imageName = object.imageName
         meal.isAdded = object.isAdded ?? false
+        meal.category = object.category
         
         
         //Пытаемся сохранить контекст
