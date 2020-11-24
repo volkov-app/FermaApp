@@ -355,8 +355,8 @@
         <!--Избранное-->
         <scene sceneID="mRK-WZ-TPj">
             <objects>
-                <tableViewController id="a1a-ha-rdZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GsE-5i-f1k">
+                <tableViewController storyboardIdentifier="FavoritesTableViewController" id="a1a-ha-rdZ" customClass="FavoritesTableViewController" customModule="Ferma_Restourant" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GsE-5i-f1k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -513,7 +513,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-y6-oY6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-y6-oY6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6tl-y6-oY6" secondAttribute="height" multiplier="1:1" id="vqp-Th-JCd"/>
@@ -631,11 +631,11 @@
         <segue reference="Jlg-nq-wRF"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="1" width="958" height="639"/>
         <image name="Ferma logo" width="170.66667175292969" height="114"/>
         <image name="Mask Group" width="25" height="25"/>
         <image name="Mask Group-2" width="25" height="25"/>
         <image name="Rectangle" width="375" height="350"/>
-        <image name="food" width="90" height="90"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="id100" width="720" height="1280"/>
         <image name="insta" width="25" height="25"/>

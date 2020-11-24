@@ -32,7 +32,8 @@ class MoreDetalsViewController: UIViewController {
         nameLable.text = selectedMeal.name
         descriptionLable.text = selectedMeal.desc
         priceLable.text = String(selectedMeal.price)
-        fotoImage.image = UIImage(named: selectedMeal.imageName!)
+        fotoImage.image = UIImage(named: selectedMeal.imageName!) ?? UIImage(named: "id1")
+        
     }
     
     @IBAction func addButton(_ sender: Any) {

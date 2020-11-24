@@ -265,7 +265,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: "MoreDetalsViewController") as! MoreDetalsViewController
         
-        let meal = mealsCoreData[indexPath.row]
+        let meal = sectionsOfMeals[indexPath.section][indexPath.row]
         
         //Передаем объект meals на следующий экран
         nextVC.selectedMeal = meal
