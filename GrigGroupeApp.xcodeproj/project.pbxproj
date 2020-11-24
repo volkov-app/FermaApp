@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3718DF4B256A4EBB00FE34C7 /* menu.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3718DF4A256A4EBB00FE34C7 /* menu.csv */; };
 		3718DF59256AEF0400FE34C7 /* filterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718DF58256AEF0300FE34C7 /* filterViewController.swift */; };
-		3718DF5D256AF2C200FE34C7 /* favoritTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718DF5C256AF2C200FE34C7 /* favoritTableViewController.swift */; };
 		372ED8B2255DB589008B3C00 /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B1255DB589008B3C00 /* MealObject.swift */; };
 		372ED8BA255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B8255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld */; };
 		372ED8BD255DC3C3008B3C00 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */; };
@@ -35,7 +34,6 @@
 		21302454C3EE39213B882170 /* Pods-GrigGroupeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrigGroupeApp.release.xcconfig"; path = "Target Support Files/Pods-GrigGroupeApp/Pods-GrigGroupeApp.release.xcconfig"; sourceTree = "<group>"; };
 		3718DF4A256A4EBB00FE34C7 /* menu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = menu.csv; sourceTree = "<group>"; };
 		3718DF58256AEF0300FE34C7 /* filterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterViewController.swift; sourceTree = "<group>"; };
-		3718DF5C256AF2C200FE34C7 /* favoritTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritTableViewController.swift; sourceTree = "<group>"; };
 		372ED8B1255DB589008B3C00 /* MealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
 		372ED8B9255DC35F008B3C00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				74078F7E254B63FE00A242F8 /* classes */,
 				74E327A62547276D005C4A45 /* SceneDelegate.swift */,
 				74E327AA2547276D005C4A45 /* Main.storyboard */,
-				3718DF5C256AF2C200FE34C7 /* favoritTableViewController.swift */,
 				3718DF58256AEF0300FE34C7 /* filterViewController.swift */,
 				742E116D254C857800F82C42 /* UIView extention.swift */,
 				74E327E9254745ED005C4A45 /* TableViewCell.swift */,
@@ -268,7 +265,6 @@
 				74E327DC25473A8B005C4A45 /* AboutViewController.swift in Sources */,
 				742E116E254C857800F82C42 /* UIView extention.swift in Sources */,
 				74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */,
-				3718DF5D256AF2C200FE34C7 /* favoritTableViewController.swift in Sources */,
 				372ED8B2255DB589008B3C00 /* MealObject.swift in Sources */,
 				74E327D925473A36005C4A45 /* MenuViewController.swift in Sources */,
 				372ED8BA255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld in Sources */,

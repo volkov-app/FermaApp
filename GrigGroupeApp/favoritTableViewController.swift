@@ -8,7 +8,7 @@ class favoritTableViewController : UITableViewController {
     
     @IBOutlet weak var viewCell: UIView!
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tv: UITableView!
     var sectionsOfMeals: [[Meal]] = []
     var mealsCoreData: [Meal] = []
     
@@ -111,7 +111,7 @@ func getArray() -> [[String: String]] {
 }
 
 //Показываем колличество клеток
-extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
+extension favoritTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       

@@ -14,7 +14,7 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var viewCell: UIView!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tv: UITableView!
     
     var sectionsOfMeals: [[Meal]] = []
     var mealsCoreData: [Meal] = []
@@ -29,77 +29,64 @@ class MenuViewController: UIViewController {
         let soupMeals = mealsArray.filter {
             $0.category == "ПИЦЦА"
         }
+        result.append(soupMeals)
         let cheeseMeetMeals = mealsArray.filter {
             $0.category == "СЫРЫ & МЯСО"
         }
-        
+        result.append(cheeseMeetMeals)
         let eats = mealsArray.filter {
             $0.category == "ЗАКУСКИ"
         }
+        result.append(eats)
         let salats = mealsArray.filter {
             $0.category == "САЛАТЫ"
         }
-        let fruits = mealsArray.filter {
-            $0.category == "ЯГОДЫ & ФРУКТЫ"
-        }
-        let bruskets = mealsArray.filter {
-            $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
-        }
-        let vedjetabls = mealsArray.filter {
-            $0.category == "ГАРНИРЫ & ОВОЩИ"
-        }
-        let diserts = mealsArray.filter {
-            $0.category == "ДЕСЕРТЫ"
-        }
-        let aquarium = mealsArray.filter {
-            $0.category == "АКВАРИУМ"
-        }
-        let soups = mealsArray.filter {
-            $0.category == "СУПЫ"
-        }
-        let meats = mealsArray.filter {
-            $0.category == "МЯСО"
-        }
-        let fishes = mealsArray.filter {
-            $0.category == "РЫБА"
-        }
-        let seaFood = mealsArray.filter {
-            $0.category == "МОРЕПРОДУКТЫ"
-        }
-        let bake = mealsArray.filter {
-            $0.category == "ВЫПЕЧКА"
-        }
-        let desert = mealsArray.filter {
-            $0.category == "ДЕСЕРТ"
-        }
+//        result.append(salats)
+//        let fruits = mealsArray.filter {
+//            $0.category == "ЯГОДЫ & ФРУКТЫ"
+//        }
+//        result.append(soupMeals)
+//        let bruskets = mealsArray.filter {
+//            $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
+//        }
+//        result.append(soupMeals)
+//        let vedjetabls = mealsArray.filter {
+//            $0.category == "ГАРНИРЫ & ОВОЩИ"
+//        }
+//        result.append(soupMeals)
+//        let diserts = mealsArray.filter {
+//            $0.category == "ДЕСЕРТЫ"
+//        }
+//        result.append(soupMeals)
+//        let aquarium = mealsArray.filter {
+//            $0.category == "АКВАРИУМ"
+//        }
+//        result.append(soupMeals)
+//        let soups = mealsArray.filter {
+//            $0.category == "СУПЫ"
+//        }
+//        result.append(soupMeals)
+//        let meats = mealsArray.filter {
+//            $0.category == "МЯСО"
+//        }
+//        result.append(soupMeals)
+//        let fishes = mealsArray.filter {
+//            $0.category == "РЫБА"
+//        }
+//        result.append(soupMeals)
+//        let seaFood = mealsArray.filter {
+//            $0.category == "МОРЕПРОДУКТЫ"
+//        }
+//        result.append(soupMeals)
+//        let bake = mealsArray.filter {
+//            $0.category == "ВЫПЕЧКА"
+//        }
+//        result.append(soupMeals)
+//        let desert = mealsArray.filter {
+//            $0.category == "ДЕСЕРТ"
+//        }
+//        result.append(soupMeals)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        result.append(soupMeals)
-        result.append(cheeseMeetMeals)
-        result.append(eats)
-        result.append(salats)
-        result.append(fruits)
-        result.append(bruskets)
-        result.append(vedjetabls)
-        result.append(diserts)
-        result.append(aquarium)
-        result.append(soups)
-        result.append(meats)
-        result.append(fishes)
-        result.append(bake)
-        result.append(desert)
-        
-        
-        //print(soupMeals)
         return result
     }
     
@@ -154,7 +141,7 @@ class MenuViewController: UIViewController {
                 self.sectionsOfMeals = splitMealsToSections(self.mealsCoreData)
             }
         }
-        tableView.reloadData()
+        tv.reloadData()
     }
     
     
@@ -162,45 +149,54 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         fecthData()
-//        fromCSVToArray()
+        //        fromCSVToArray()
         
         // чтобы обновить список нужно раскоментить а потом закрыть
-       mealsCoreData.forEach { (meal) in
+        mealsCoreData.forEach { (meal) in
             DatabaseManager.instance.deleteMeal(meal: meal)
         }
-//
-//
+        //
+        //
         createNewMeals()
-//
-//
+        //
+        //
         fecthData()
     }
     
-}
-
-func getArray() -> [[String: String]] {
     
-    //Массив из обьектов с их параметрами
-    var dataArray : [[String: String]] = []
-    
-    
-    do {
+    func getArray() -> [[String: String]] {
         
-        let csvFile: CSV = try CSV(url: URL(fileURLWithPath: "/Users/volkov/FermaApp/GrigGroupeApp/menu.csv"))
-        dataArray = csvFile.namedRows
-    } catch  {
+        //Массив из обьектов с их параметрами
+        var dataArray : [[String: String]] = []
         
-        print(error.localizedDescription)
+        
+        do {
+            
+            var csvFile: CSV?
+            
+            if let path = Bundle.main.path(forResource: "menu", ofType: "csv") {
+                
+                let url = URL(fileURLWithPath: path)
+                csvFile = try CSV(url: url)
+            }
+            
+            
+            dataArray = csvFile?.namedRows ?? []
+        } catch  {
+            
+            print(error.localizedDescription)
+        }
+        
+        return dataArray
     }
     
-    return dataArray
 }
 
 //Показываем колличество клеток
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
+        
         return sectionsOfMeals[section].count
     }
     
@@ -273,7 +269,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         //Передаем объект meals на следующий экран
         nextVC.selectedMeal = meal
-//            Meal(name: meal["name"], price: Int(meal["price"]), description: meal["description"], image: meal["id"], isAdded: nil)
+        //            Meal(name: meal["name"], price: Int(meal["price"]), description: meal["description"], image: meal["id"], isAdded: nil)
         
         
         navigationController?.pushViewController(nextVC, animated: true)
@@ -281,3 +277,4 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
 }
+
