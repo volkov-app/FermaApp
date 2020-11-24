@@ -11,9 +11,10 @@ import SwiftCSV
 
 class MenuViewController: UIViewController {
     
+    
     @IBOutlet weak var viewCell: UIView!
     
-     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var sectionsOfMeals: [[Meal]] = []
     var mealsCoreData: [Meal] = []
@@ -28,17 +29,76 @@ class MenuViewController: UIViewController {
         let soupMeals = mealsArray.filter {
             $0.category == "ПИЦЦА"
         }
-//
-//        let otherMeals = mealsArray.filter {
-//            $0.category != "ПИЦЦА"
-//        }
         let cheeseMeetMeals = mealsArray.filter {
             $0.category == "СЫРЫ & МЯСО"
         }
         
-        result.append(soupMeals)
+        let eats = mealsArray.filter {
+            $0.category == "ЗАКУСКИ"
+        }
+        let salats = mealsArray.filter {
+            $0.category == "САЛАТЫ"
+        }
+        let fruits = mealsArray.filter {
+            $0.category == "ЯГОДЫ & ФРУКТЫ"
+        }
+        let bruskets = mealsArray.filter {
+            $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
+        }
+        let vedjetabls = mealsArray.filter {
+            $0.category == "ГАРНИРЫ & ОВОЩИ"
+        }
+        let diserts = mealsArray.filter {
+            $0.category == "ДЕСЕРТЫ"
+        }
+        let aquarium = mealsArray.filter {
+            $0.category == "АКВАРИУМ"
+        }
+        let soups = mealsArray.filter {
+            $0.category == "СУПЫ"
+        }
+        let meats = mealsArray.filter {
+            $0.category == "МЯСО"
+        }
+        let fishes = mealsArray.filter {
+            $0.category == "РЫБА"
+        }
+        let seaFood = mealsArray.filter {
+            $0.category == "МОРЕПРОДУКТЫ"
+        }
+        let bake = mealsArray.filter {
+            $0.category == "ВЫПЕЧКА"
+        }
+        let desert = mealsArray.filter {
+            $0.category == "ДЕСЕРТ"
+        }
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        result.append(soupMeals)
         result.append(cheeseMeetMeals)
+        result.append(eats)
+        result.append(salats)
+        result.append(fruits)
+        result.append(bruskets)
+        result.append(vedjetabls)
+        result.append(diserts)
+        result.append(aquarium)
+        result.append(soups)
+        result.append(meats)
+        result.append(fishes)
+        result.append(bake)
+        result.append(desert)
+        
+        
         //print(soupMeals)
         return result
     }
@@ -154,11 +214,40 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return "Pizza"
         case 1:
-            return "Cheese & Meet"
+            return "СЫРЫ & МЯСО"
+        case 2:
+            return "ЗАКУСКИ"
+        case 3:
+            return "САЛАТЫ"
+        case 4:
+            return "ЯГОДЫ & ФРУКТЫ"
+        case 5:
+            return "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
+        case 6:
+            return "ГАРНИРЫ & ОВОЩИ"
+        case 7:
+            return "ДЕСЕРТЫ"
+        case 8:
+            return "АКВАРИУМ"
+        case 9:
+            return "СУПЫ"
+        case 10:
+            return "МЯСО"
+        case 11:
+            return "РЫБА"
+        case 12:
+            return "МОРЕПРОДУКТЫ"
+        case 13:
+            return "ВЫПЕЧКА"
+        case 14:
+            return "ДЕСЕРТ"
         default:
             return "Other"
         }
     }
+    
+    
+    
     
     // какой индекс у ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,7 +260,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         cell.priceCell.text = String(meal.price)
         cell.descriptionCell.text = meal.desc
         cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
-        
+        cell.isAdded = meal.isAdded
         return cell
     }
     
@@ -192,4 +281,3 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
 }
-

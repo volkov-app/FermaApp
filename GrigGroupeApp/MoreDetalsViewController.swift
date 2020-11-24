@@ -23,6 +23,7 @@ class MoreDetalsViewController: UIViewController {
     var descript: String?
     var price: String?
     var image: UIImage?
+    var isAded: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
