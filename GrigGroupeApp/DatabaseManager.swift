@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class DatabaseManager {
+    
     static var instance = DatabaseManager()
     
     //функция создания нового объекта

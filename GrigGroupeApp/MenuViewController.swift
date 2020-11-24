@@ -99,10 +99,10 @@ class MenuViewController: UIViewController {
 //        }
 //
 //
-//        createNewMeals()
+        createNewMeals()
 //
 //
-//        fecthData()
+        fecthData()
     }
     
 }
