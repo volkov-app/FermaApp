@@ -8,5 +8,6 @@ target 'GrigGroupeApp' do
   # Pods for GrigGroupeApp
 
 pod 'SwiftCSV'
+pod 'Firebase/AppDistribution'
 
 end

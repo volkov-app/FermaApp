@@ -17,6 +17,11 @@ class FavoritesTableViewController: UITableViewController {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
+    
     func fetchData() {
         DatabaseManager.instance.fetchData { (done, meals) in
             if done, let allMeal = meals {
@@ -45,7 +50,7 @@ class FavoritesTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return meals.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,7 +69,29 @@ class FavoritesTableViewController: UITableViewController {
         cell.descriptionCell.text = meal.desc
         cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
         cell.isAdded = meal.isAdded
+        
+        if meal.isAdded {
+            cell.heartImage?.image = UIImage(systemName: "heart.fill")
+        } else {
+            cell.heartImage?.image = UIImage(systemName: "heart")
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(heartTapped(_:)))
+        cell.heartImage?.addGestureRecognizer(tap)
+        
         return cell
+    }
+    
+    @objc func heartTapped(_ sender: Meal)
+    {
+        if sender.isAdded {
+            sender.isAdded = false
+        } else {
+            sender.isAdded = true
+        }
+        DatabaseManager.instance.updateMeal()
+        
+        fetchData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

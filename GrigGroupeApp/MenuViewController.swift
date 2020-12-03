@@ -41,51 +41,51 @@ class MenuViewController: UIViewController {
         let salats = mealsArray.filter {
             $0.category == "САЛАТЫ"
         }
-//        result.append(salats)
-//        let fruits = mealsArray.filter {
-//            $0.category == "ЯГОДЫ & ФРУКТЫ"
-//        }
-//        result.append(soupMeals)
-//        let bruskets = mealsArray.filter {
-//            $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
-//        }
-//        result.append(soupMeals)
-//        let vedjetabls = mealsArray.filter {
-//            $0.category == "ГАРНИРЫ & ОВОЩИ"
-//        }
-//        result.append(soupMeals)
-//        let diserts = mealsArray.filter {
-//            $0.category == "ДЕСЕРТЫ"
-//        }
-//        result.append(soupMeals)
-//        let aquarium = mealsArray.filter {
-//            $0.category == "АКВАРИУМ"
-//        }
-//        result.append(soupMeals)
-//        let soups = mealsArray.filter {
-//            $0.category == "СУПЫ"
-//        }
-//        result.append(soupMeals)
-//        let meats = mealsArray.filter {
-//            $0.category == "МЯСО"
-//        }
-//        result.append(soupMeals)
-//        let fishes = mealsArray.filter {
-//            $0.category == "РЫБА"
-//        }
-//        result.append(soupMeals)
-//        let seaFood = mealsArray.filter {
-//            $0.category == "МОРЕПРОДУКТЫ"
-//        }
-//        result.append(soupMeals)
-//        let bake = mealsArray.filter {
-//            $0.category == "ВЫПЕЧКА"
-//        }
-//        result.append(soupMeals)
-//        let desert = mealsArray.filter {
-//            $0.category == "ДЕСЕРТ"
-//        }
-//        result.append(soupMeals)
+        result.append(salats)
+        let fruits = mealsArray.filter {
+            $0.category == "ЯГОДЫ & ФРУКТЫ"
+        }
+        result.append(fruits)
+        let bruskets = mealsArray.filter {
+            $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
+        }
+        result.append(bruskets)
+        let vedjetabls = mealsArray.filter {
+            $0.category == "ГАРНИРЫ & ОВОЩИ"
+        }
+        result.append(vedjetabls)
+        let diserts = mealsArray.filter {
+            $0.category == "ДЕСЕРТЫ"
+        }
+        result.append(diserts)
+        let aquarium = mealsArray.filter {
+            $0.category == "АКВАРИУМ"
+        }
+        result.append(aquarium)
+        let soups = mealsArray.filter {
+            $0.category == "СУПЫ"
+        }
+        result.append(soups)
+        let meats = mealsArray.filter {
+            $0.category == "МЯСО"
+        }
+        result.append(meats)
+        let fishes = mealsArray.filter {
+            $0.category == "РЫБА"
+        }
+        result.append(fishes)
+        let seaFood = mealsArray.filter {
+            $0.category == "МОРЕПРОДУКТЫ"
+        }
+        result.append(seaFood)
+        let bake = mealsArray.filter {
+            $0.category == "ВЫПЕЧКА"
+        }
+        result.append(bake)
+        let desert = mealsArray.filter {
+            $0.category == "ДЕСЕРТ"
+        }
+        result.append(desert)
         
         return result
     }
@@ -137,7 +137,9 @@ class MenuViewController: UIViewController {
     func fecthData() {
         DatabaseManager.instance.fetchData { (done, meals) in
             if done, let allMeal = meals {
-                self.mealsCoreData = splitMeals(allMeal)
+                
+//                self.mealsCoreData = splitMeals(allMeal)
+                self.mealsCoreData = allMeal
                 self.sectionsOfMeals = splitMealsToSections(self.mealsCoreData)
             }
         }
@@ -251,15 +253,36 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         let meal = sectionsOfMeals[indexPath.section][indexPath.row]
         
-        //присваиваем каждой ячейки свои значениz
+        //присваиваем каждой ячейки свои значение
         cell.nameCell.text = meal.name
         cell.priceCell.text = String(meal.price)
         cell.descriptionCell.text = meal.desc
         cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
         cell.isAdded = meal.isAdded
+
+        if meal.isAdded {
+            cell.heartImage?.image = UIImage(systemName: "heart.fill")
+        } else {
+            cell.heartImage?.image = UIImage(systemName: "heart")
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(heartTapped(_:)))
+        cell.heartImage?.addGestureRecognizer(tap)
+        
         return cell
     }
     
+    @objc func heartTapped(_ sender: Meal)
+    {
+        if sender.isAdded {
+            sender.isAdded = false
+        } else {
+            sender.isAdded = true
+        }
+        DatabaseManager.instance.updateMeal()
+        
+        fecthData()
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)

@@ -18,14 +18,18 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var nameCell: UILabel!
     @IBOutlet weak var descriptionCell: UILabel!
     @IBOutlet weak var priceCell: UILabel!
-    @IBOutlet weak var heart: UIImageView!
+    @IBOutlet weak var heartImage: UIImageView!
     
     var isAdded: Bool!
+    var selectedMeal: Meal?
+    
     override func awakeFromNib() {
-        
         super.awakeFromNib()
+        settingUI()
+    }
+    
+    func settingUI() {
         viewCell.dropShadow() //активируем тень
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
