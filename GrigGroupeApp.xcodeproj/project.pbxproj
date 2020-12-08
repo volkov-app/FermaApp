@@ -26,6 +26,7 @@
 		74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E9254745ED005C4A45 /* TableViewCell.swift */; };
 		A413B8796AA19EC016FE407F /* Pods_GrigGroupeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */; };
 		FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */; };
+		FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA98A329257969D00027D290 /* GoogleService-Info.plist */; };
 		FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmeals.csv */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		74E327E625473C29005C4A45 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74E327E9254745ED005C4A45 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		FA98A329257969D00027D290 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAF881A52561AAA00045ACB7 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
 		FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrigGroupeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 				74D565882549E70B00A33B3A /* Media.xcassets */,
 				74E327B22547276F005C4A45 /* Info.plist */,
 				372ED8B8255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld */,
+				FA98A329257969D00027D290 /* GoogleService-Info.plist */,
 				372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */,
 			);
 			path = GrigGroupeApp;
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E327B12547276F005C4A45 /* LaunchScreen.storyboard in Resources */,
+				FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */,
 				FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */,
 				3718DF4B256A4EBB00FE34C7 /* menu.csv in Resources */,
 				74E327AC2547276D005C4A45 /* Main.storyboard in Resources */,
@@ -417,14 +421,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8KZVTK9MJH;
+				DEVELOPMENT_TEAM = 8R6WQM9KWN;
 				INFOPLIST_FILE = GrigGroupeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dkainm.com.FermaApp;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -440,14 +445,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8KZVTK9MJH;
+				DEVELOPMENT_TEAM = 8R6WQM9KWN;
 				INFOPLIST_FILE = GrigGroupeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dkainm.com.FermaApp;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

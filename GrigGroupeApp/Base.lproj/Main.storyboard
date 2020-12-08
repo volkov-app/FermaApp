@@ -44,6 +44,11 @@
                                                                 <constraint firstAttribute="width" constant="90" id="dH3-93-Cv0"/>
                                                                 <constraint firstAttribute="height" constant="90" id="xCk-iS-Wew"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Творог, джем и вкусные ягоды" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGz-MT-S8e">
                                                             <rect key="frame" x="101" y="18" width="175" height="43"/>
@@ -60,8 +65,8 @@
                                                             <color key="textColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-uZ-yp0">
-                                                            <rect key="frame" x="298" y="23" width="37" height="37"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-uZ-yp0">
+                                                            <rect key="frame" x="332" y="28" width="32" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="37" id="1Ra-Zo-77D"/>
                                                                 <constraint firstAttribute="height" constant="40" id="dHe-eO-pwd"/>
@@ -86,7 +91,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
+                                                            <integer key="value" value="15"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -127,7 +132,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eAb-lS-qc8"/>
+                    <navigationItem key="navigationItem" title="Меню" id="eAb-lS-qc8"/>
                     <connections>
                         <outlet property="tv" destination="8Vd-vc-9s5" id="mOr-JT-vJj"/>
                     </connections>
@@ -141,7 +146,7 @@
             <objects>
                 <tableViewController id="yyy-0z-NrN" customClass="infoTableViewController" customModule="Ferma_Restourant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x8Z-jJ-uyo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -351,7 +356,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYu-lh-4po" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4931.884057971015" y="81.696428571428569"/>
+            <point key="canvasLocation" x="267" y="-313"/>
         </scene>
         <!--Избранное-->
         <scene sceneID="mRK-WZ-TPj">
@@ -480,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvQ-mH-d9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5813" y="638"/>
+            <point key="canvasLocation" x="1161" y="-313"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="3Zk-oC-EOG">
@@ -505,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsk-3g-ndP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6730" y="824"/>
+            <point key="canvasLocation" x="1977" y="-313"/>
         </scene>
         <!--More Detals View Controller-->
         <scene sceneID="OvH-hX-Ypf">
@@ -515,9 +520,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-y6-oY6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-y6-oY6">
+                                <rect key="frame" x="20" y="44" width="374" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Овсянка с ягодами" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnP-8X-lLn">
                                 <rect key="frame" x="57" y="466" width="189" height="19"/>
@@ -555,6 +565,11 @@
                                 <state key="normal" title="Добавить в избранное">
                                     <color key="titleColor" red="0.96462160350000004" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addButton:" destination="FQP-Kq-dK5" eventType="touchUpInside" id="8fk-nM-opX"/>
                                 </connections>
@@ -598,7 +613,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ros-8n-Pzz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="52"/>
+            <point key="canvasLocation" x="267" y="492"/>
         </scene>
         <!--Меню-->
         <scene sceneID="WOL-eO-BBR">
@@ -623,14 +638,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jlg-nq-wRF"/>
+        <segue reference="0za-FT-WB6"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="1" width="958" height="639"/>
         <image name="Ferma logo" width="170.66667175292969" height="114"/>
         <image name="Mask Group" width="25" height="25"/>
         <image name="Mask Group-2" width="25" height="25"/>
         <image name="Rectangle" width="375" height="350"/>
+        <image name="defaultImage" width="960" height="1280"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="id100" width="720" height="1280"/>
         <image name="insta" width="25" height="25"/>
