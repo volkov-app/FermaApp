@@ -27,6 +27,11 @@
 		A413B8796AA19EC016FE407F /* Pods_GrigGroupeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */; };
 		FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */; };
 		FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA98A329257969D00027D290 /* GoogleService-Info.plist */; };
+		FAA3ED4125893884005DDAE1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */; };
+		FAA3ED4225893884005DDAE1 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA3ED4025893884005DDAE1 /* MenuTableViewCell.xib */; };
+		FAA3ED4425894019005DDAE1 /* UIImage + extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED4325894019005DDAE1 /* UIImage + extention.swift */; };
+		FAA3ED4625894AD6005DDAE1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED4525894AD6005DDAE1 /* Category.swift */; };
+		FABFE36625869FDA00F9685B /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFE36525869FDA00F9685B /* FiltersViewController.swift */; };
 		FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmeals.csv */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +59,11 @@
 		74E327E9254745ED005C4A45 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		FA98A329257969D00027D290 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		FAA3ED4025893884005DDAE1 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		FAA3ED4325894019005DDAE1 /* UIImage + extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + extention.swift"; sourceTree = "<group>"; };
+		FAA3ED4525894AD6005DDAE1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FABFE36525869FDA00F9685B /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		FAF881A52561AAA00045ACB7 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
 		FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrigGroupeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,6 +90,7 @@
 				74E327E625473C29005C4A45 /* ProfileViewController.swift */,
 				74751E232555B1F500ABD4DC /* infoTableViewController.swift */,
 				FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */,
+				FABFE36525869FDA00F9685B /* FiltersViewController.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -105,6 +116,7 @@
 		74E327A32547276D005C4A45 /* GrigGroupeApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAA3ED3E25893867005DDAE1 /* tableViewCells */,
 				372ED8B1255DB589008B3C00 /* MealObject.swift */,
 				74E327A42547276D005C4A45 /* AppDelegate.swift */,
 				FAF881A52561AAA00045ACB7 /* tableofmeals.csv */,
@@ -120,6 +132,8 @@
 				372ED8B8255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld */,
 				FA98A329257969D00027D290 /* GoogleService-Info.plist */,
 				372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */,
+				FAA3ED4325894019005DDAE1 /* UIImage + extention.swift */,
+				FAA3ED4525894AD6005DDAE1 /* Category.swift */,
 			);
 			path = GrigGroupeApp;
 			sourceTree = "<group>";
@@ -139,6 +153,15 @@
 				21302454C3EE39213B882170 /* Pods-GrigGroupeApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FAA3ED3E25893867005DDAE1 /* tableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */,
+				FAA3ED4025893884005DDAE1 /* MenuTableViewCell.xib */,
+			);
+			name = tableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E327B12547276F005C4A45 /* LaunchScreen.storyboard in Resources */,
+				FAA3ED4225893884005DDAE1 /* MenuTableViewCell.xib in Resources */,
 				FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */,
 				FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */,
 				3718DF4B256A4EBB00FE34C7 /* menu.csv in Resources */,
@@ -262,13 +286,17 @@
 				74E327E725473C29005C4A45 /* ProfileViewController.swift in Sources */,
 				372ED8BD255DC3C3008B3C00 /* DatabaseManager.swift in Sources */,
 				74E327E125473AEB005C4A45 /* ShopingViewController.swift in Sources */,
+				FABFE36625869FDA00F9685B /* FiltersViewController.swift in Sources */,
+				FAA3ED4625894AD6005DDAE1 /* Category.swift in Sources */,
 				74E327A52547276D005C4A45 /* AppDelegate.swift in Sources */,
 				FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */,
 				74751E242555B1F500ABD4DC /* infoTableViewController.swift in Sources */,
 				74E327A72547276D005C4A45 /* SceneDelegate.swift in Sources */,
 				74E327DC25473A8B005C4A45 /* AboutViewController.swift in Sources */,
+				FAA3ED4125893884005DDAE1 /* MenuTableViewCell.swift in Sources */,
 				742E116E254C857800F82C42 /* UIView extention.swift in Sources */,
 				74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */,
+				FAA3ED4425894019005DDAE1 /* UIImage + extention.swift in Sources */,
 				372ED8B2255DB589008B3C00 /* MealObject.swift in Sources */,
 				74E327D925473A36005C4A45 /* MenuViewController.swift in Sources */,
 				372ED8BA255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld in Sources */,

@@ -2,28 +2,17 @@
 //  Category.swift
 //  GrigGroupeApp
 //
-//  Created by user183382 on 10/31/20.
+//  Created by Alex Rudoi on 15/12/20.
 //
 
-import Foundation
+import UIKit
 
-class Category{
-    let name: String
-    let sortOrder: Int
-    let imageURL: String
-
-    init?(data: NSDictionary) {
-        guard let name = data["name"] as? String,
-              let sortOrder = data["sortOrder"] as? String,
-              let imageURL = data["image"] as? String else {
-            return nil
-        }
+struct Category {
+    var name: String
+    var categoryImage: UIImage
+    
+    init(_ image: UIImage, _ name: String) {
         self.name = name
-        self.sortOrder = Int(sortOrder) ?? 0
-        self.imageURL = imageURL
+        categoryImage = image
     }
-
-
-
 }
-

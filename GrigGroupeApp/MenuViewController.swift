@@ -192,6 +192,14 @@ class MenuViewController: UIViewController {
         return dataArray
     }
     
+    @IBAction func filtersTapped(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "FiltersViewController") as! FiltersViewController
+        
+        vc.splitedMeals = sectionsOfMeals
+        
+        navigationController?.show(vc, sender: nil)
+    }
 }
 
 //Показываем колличество клеток
