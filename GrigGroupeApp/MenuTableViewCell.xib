@@ -20,10 +20,9 @@
                         <rect key="frame" x="7" y="0.0" width="65" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKJ-Y0-1QA">
-                        <rect key="frame" x="77" y="24" width="217" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jKJ-Y0-1QA">
+                        <rect key="frame" x="77" y="19.5" width="219" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,6 +31,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="jKJ-Y0-1QA" firstAttribute="leading" secondItem="i0c-Nw-1Mk" secondAttribute="trailing" constant="5" id="7mJ-jN-8gd"/>
+                    <constraint firstAttribute="trailing" secondItem="jKJ-Y0-1QA" secondAttribute="trailing" constant="24" id="Cot-tX-99z"/>
+                    <constraint firstItem="jKJ-Y0-1QA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Z5M-5v-X96"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -42,7 +46,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Rectangle" width="512" height="512"/>
+        <image name="Rectangle" width="375" height="350"/>
         <image name="categoryIcon" width="75" height="75"/>
     </resources>
 </document>

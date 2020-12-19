@@ -15,6 +15,7 @@ class MoreDetalsViewController: UIViewController {
     @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var fotoImage: UIImageView!
+    @IBOutlet weak var addButtonOutlet: UIButton!
     
     var selectedMeal: Meal!
     
@@ -24,6 +25,10 @@ class MoreDetalsViewController: UIViewController {
     var price: String?
     var image: UIImage?
     var isAded: Bool?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +41,29 @@ class MoreDetalsViewController: UIViewController {
         
     }
     
+    func setUI() {
+        nameLable.sizeToFit()
+        descriptionLable.sizeToFit()
+        
+        if selectedMeal.isAdded {
+            addButtonOutlet.setTitle("Убрать из избранного", for: .normal)
+            addButtonOutlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        } else {
+            addButtonOutlet.setTitle("Добавить в избранное", for: .normal)
+            addButtonOutlet.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.3215686275, blue: 0, alpha: 1)
+        }
+    }
+    
     @IBAction func addButton(_ sender: Any) {
-        selectedMeal.isAdded = true
+        
+        if selectedMeal.isAdded {
+            selectedMeal.isAdded = false
+        } else {
+            selectedMeal.isAdded = true
+        }
+        
         DatabaseManager.instance.updateMeal()
+        setUI()
     }
     
 }

@@ -21,6 +21,8 @@ class MenuViewController: UIViewController {
     
     var meals: [[String: String]] = []
     
+    var category: Category!
+    var categoryIndex: Int?
     
     
     func splitMealsToSections(_ mealsArray: [Meal]) -> [[Meal]] {
@@ -150,18 +152,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fecthData()
-        //        fromCSVToArray()
-        
-        // чтобы обновить список нужно раскоментить а потом закрыть
-        mealsCoreData.forEach { (meal) in
-            DatabaseManager.instance.deleteMeal(meal: meal)
-        }
-        //
-        //
-        createNewMeals()
-        //
-        //
+        title = category.name
         fecthData()
     }
     
@@ -207,50 +198,50 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return sectionsOfMeals[section].count
+        return sectionsOfMeals[categoryIndex!].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionsOfMeals.count
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        switch section {
-        case 0:
-            return "Pizza"
-        case 1:
-            return "СЫРЫ & МЯСО"
-        case 2:
-            return "ЗАКУСКИ"
-        case 3:
-            return "САЛАТЫ"
-        case 4:
-            return "ЯГОДЫ & ФРУКТЫ"
-        case 5:
-            return "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
-        case 6:
-            return "ГАРНИРЫ & ОВОЩИ"
-        case 7:
-            return "ДЕСЕРТЫ"
-        case 8:
-            return "АКВАРИУМ"
-        case 9:
-            return "СУПЫ"
-        case 10:
-            return "МЯСО"
-        case 11:
-            return "РЫБА"
-        case 12:
-            return "МОРЕПРОДУКТЫ"
-        case 13:
-            return "ВЫПЕЧКА"
-        case 14:
-            return "ДЕСЕРТ"
-        default:
-            return "Other"
-        }
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//        switch section {
+//        case 0:
+//            return "Pizza"
+//        case 1:
+//            return "СЫРЫ & МЯСО"
+//        case 2:
+//            return "ЗАКУСКИ"
+//        case 3:
+//            return "САЛАТЫ"
+//        case 4:
+//            return "ЯГОДЫ & ФРУКТЫ"
+//        case 5:
+//            return "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
+//        case 6:
+//            return "ГАРНИРЫ & ОВОЩИ"
+//        case 7:
+//            return "ДЕСЕРТЫ"
+//        case 8:
+//            return "АКВАРИУМ"
+//        case 9:
+//            return "СУПЫ"
+//        case 10:
+//            return "МЯСО"
+//        case 11:
+//            return "РЫБА"
+//        case 12:
+//            return "МОРЕПРОДУКТЫ"
+//        case 13:
+//            return "ВЫПЕЧКА"
+//        case 14:
+//            return "ДЕСЕРТ"
+//        default:
+//            return "Other"
+//        }
+//    }
     
     
     
@@ -259,7 +250,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         
-        let meal = sectionsOfMeals[indexPath.section][indexPath.row]
+        let meal = sectionsOfMeals[categoryIndex!][indexPath.row]
         
         //присваиваем каждой ячейки свои значение
         cell.nameCell.text = meal.name
@@ -296,7 +287,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: "MoreDetalsViewController") as! MoreDetalsViewController
         
-        let meal = sectionsOfMeals[indexPath.section][indexPath.row]
+        let meal = sectionsOfMeals[categoryIndex!][indexPath.row]
         
         //Передаем объект meals на следующий экран
         nextVC.selectedMeal = meal

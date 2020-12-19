@@ -105,7 +105,7 @@ class FavoritesTableViewController: UITableViewController {
         //            Meal(name: meal["name"], price: Int(meal["price"]), description: meal["description"], image: meal["id"], isAdded: nil)
         
         
-        navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.show(nextVC, sender: nil)
         
         
     }

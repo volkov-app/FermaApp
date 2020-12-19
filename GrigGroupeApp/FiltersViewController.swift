@@ -176,5 +176,15 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        vc.category = categories[indexPath.row]
+        vc.categoryIndex = indexPath.row
+        
+        navigationController?.show(vc, sender: nil)
+    }
+    
     
 }
