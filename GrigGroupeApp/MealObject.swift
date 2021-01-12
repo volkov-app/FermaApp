@@ -18,6 +18,7 @@ class MealObject: NSObject {
     
     //свойство на явность элементов в корзине
     var isAdded: Bool? = false
+    var count = 1
     
     
     init(name: String, price: Int, description: String, image: String, isAdded: Bool?, category: String) {

@@ -254,7 +254,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         //присваиваем каждой ячейки свои значение
         cell.nameCell.text = meal.name
-        cell.priceCell.text = String(meal.price)
+        cell.priceCell.text = "\(meal.price)₽"
         cell.descriptionCell.text = meal.desc
         cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
         cell.isAdded = meal.isAdded

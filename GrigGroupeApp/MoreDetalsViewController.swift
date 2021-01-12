@@ -16,6 +16,8 @@ class MoreDetalsViewController: UIViewController {
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var fotoImage: UIImageView!
     @IBOutlet weak var addButtonOutlet: UIButton!
+    @IBOutlet weak var countStepper: UIStepper!
+    @IBOutlet weak var countLabel: UILabel!
     
     var selectedMeal: Meal!
     
@@ -33,11 +35,15 @@ class MoreDetalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if selectedMeal.count == 0 { selectedMeal.count = 1 }
+        
         // Чтобы получить параметры после загрузки
         nameLable.text = selectedMeal.name
         descriptionLable.text = selectedMeal.desc
-        priceLable.text = String(selectedMeal.price)
+        priceLable.text = "\(selectedMeal.price)₽"
         fotoImage.image = UIImage(named: selectedMeal.imageName!) ?? UIImage(named: "defaultImage")
+        countLabel.text = String(selectedMeal.count)
+        countStepper.value = Double(selectedMeal.count)
         
     }
     
@@ -49,7 +55,7 @@ class MoreDetalsViewController: UIViewController {
             addButtonOutlet.setTitle("Убрать из избранного", for: .normal)
             addButtonOutlet.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         } else {
-            addButtonOutlet.setTitle("Добавить в избранное", for: .normal)
+            addButtonOutlet.setTitle("Добавить в корзину \(selectedMeal.count * selectedMeal.price)₽", for: .normal)
             addButtonOutlet.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.3215686275, blue: 0, alpha: 1)
         }
     }
@@ -60,9 +66,19 @@ class MoreDetalsViewController: UIViewController {
             selectedMeal.isAdded = false
         } else {
             selectedMeal.isAdded = true
+            FavoritesTableViewController.counts += Int(selectedMeal.count)
+            self.tabBarController?.viewControllers![1].tabBarItem.badgeValue = "\(FavoritesTableViewController.counts)"
         }
         
         DatabaseManager.instance.updateMeal()
+        setUI()
+    }
+    
+    @IBAction func steppedTapped(_ sender: UIStepper) {
+        selectedMeal.count = Int16(sender.value)
+        DatabaseManager.instance.updateMeal()
+        countLabel.text = String(selectedMeal.count)
+        
         setUI()
     }
     

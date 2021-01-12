@@ -19,6 +19,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionCell: UILabel!
     @IBOutlet weak var priceCell: UILabel!
     @IBOutlet weak var heartImage: UIImageView!
+    @IBOutlet weak var countLabel: UILabel!
     
     var isAdded: Bool!
     var selectedMeal: Meal?

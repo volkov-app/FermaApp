@@ -9,7 +9,11 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
     
+    @IBOutlet weak var priceBarButtonOutlet: UIBarButtonItem!
+    
     var meals: [Meal] = []
+    var globalPrice = 0
+    public static var counts = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,14 @@ class FavoritesTableViewController: UITableViewController {
                 self.meals = splitMeals(allMeal)
             }
         }
+        
+        countGlobalPrice()
+        
+        FavoritesTableViewController.counts = 0
+        for meal in meals {
+            FavoritesTableViewController.counts += Int(meal.count)
+        }
+        self.tabBarController?.viewControllers![1].tabBarItem.badgeValue = "\(FavoritesTableViewController.counts)"
         tableView.reloadData()
     }
     
@@ -43,6 +55,14 @@ class FavoritesTableViewController: UITableViewController {
         result.append(contentsOf: unaddedMeal)
         
         return result
+    }
+    
+    func countGlobalPrice() {
+        globalPrice = 0
+        for meal in meals {
+            globalPrice += Int(meal.price * meal.count)
+        }
+        priceBarButtonOutlet.title = "Итого: \(globalPrice)₽"
     }
     
     
@@ -65,10 +85,11 @@ class FavoritesTableViewController: UITableViewController {
         
         //присваиваем каждой ячейки свои значениz
         cell.nameCell.text = meal.name
-        cell.priceCell.text = String(meal.price)
+        cell.priceCell.text = "\(meal.price)₽"
         cell.descriptionCell.text = meal.desc
         cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
         cell.isAdded = meal.isAdded
+        cell.countLabel.text = "x\(meal.count)"
         
         if meal.isAdded {
             cell.heartImage?.image = UIImage(systemName: "heart.fill")
