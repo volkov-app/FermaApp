@@ -7,7 +7,22 @@
 
 import UIKit
 
-class infoTableViewController: UITableViewController {
+class infoTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var images: [UIImage] = [#imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "3")]
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.image.image = images[indexPath.row]
+        
+        return cell
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +34,10 @@ class infoTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func insta(_ sender: UIButton) {
+        guard let url = URL(string: "https://instagram.com/ferma_restaurant") else { return }
+        UIApplication.shared.open(url)
+    }
     // MARK: - Table view data source
 
 //    

@@ -32,6 +32,7 @@
 		FAA3ED4425894019005DDAE1 /* UIImage + extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED4325894019005DDAE1 /* UIImage + extention.swift */; };
 		FAA3ED4625894AD6005DDAE1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED4525894AD6005DDAE1 /* Category.swift */; };
 		FABFE36625869FDA00F9685B /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFE36525869FDA00F9685B /* FiltersViewController.swift */; };
+		FAEB3CA425B2DED5005D9971 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB3CA325B2DED5005D9971 /* CollectionViewCell.swift */; };
 		FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF881A52561AAA00045ACB7 /* tableofmeals.csv */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		FAA3ED4325894019005DDAE1 /* UIImage + extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + extention.swift"; sourceTree = "<group>"; };
 		FAA3ED4525894AD6005DDAE1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FABFE36525869FDA00F9685B /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		FAEB3CA325B2DED5005D9971 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FAF881A52561AAA00045ACB7 /* tableofmeals.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableofmeals.csv; sourceTree = "<group>"; };
 		FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrigGroupeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 			children = (
 				FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */,
 				FAA3ED4025893884005DDAE1 /* MenuTableViewCell.xib */,
+				FAEB3CA325B2DED5005D9971 /* CollectionViewCell.swift */,
 			);
 			name = tableViewCells;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */,
 				74751E242555B1F500ABD4DC /* infoTableViewController.swift in Sources */,
 				74E327A72547276D005C4A45 /* SceneDelegate.swift in Sources */,
+				FAEB3CA425B2DED5005D9971 /* CollectionViewCell.swift in Sources */,
 				74E327DC25473A8B005C4A45 /* AboutViewController.swift in Sources */,
 				FAA3ED4125893884005DDAE1 /* MenuTableViewCell.swift in Sources */,
 				742E116E254C857800F82C42 /* UIView extention.swift in Sources */,
@@ -456,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -480,7 +484,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";

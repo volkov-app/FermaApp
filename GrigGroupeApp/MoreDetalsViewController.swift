@@ -68,6 +68,7 @@ class MoreDetalsViewController: UIViewController {
             selectedMeal.isAdded = true
             FavoritesTableViewController.counts += Int(selectedMeal.count)
             self.tabBarController?.viewControllers![1].tabBarItem.badgeValue = "\(FavoritesTableViewController.counts)"
+            self.navigationController?.popViewController(animated: true)
         }
         
         DatabaseManager.instance.updateMeal()
