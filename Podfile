@@ -9,5 +9,6 @@ target 'GrigGroupeApp' do
 
 pod 'SwiftCSV'
 pod 'Firebase/AppDistribution'
+pod 'FirebaseFirestore'
 
 end

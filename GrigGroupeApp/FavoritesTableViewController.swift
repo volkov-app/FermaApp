@@ -18,6 +18,8 @@ class FavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         fetchData()
     }
     
@@ -65,6 +67,13 @@ class FavoritesTableViewController: UITableViewController {
         priceBarButtonOutlet.title = "Итого: \(globalPrice)₽"
     }
     
+    @IBAction func priceButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+        vc.meals = meals
+        vc.globalPrice = globalPrice
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     // MARK: - Table view data source
     

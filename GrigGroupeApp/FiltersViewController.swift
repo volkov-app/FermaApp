@@ -9,26 +9,28 @@ import UIKit
 import SwiftCSV
 
 class FiltersViewController: UIViewController {
-
+    
     @IBOutlet weak var tv: UITableView!
     
     var categories: [Category] = [Category(UIImage(named: "pizzaIcon")!, "Пицца"),
                                   Category(UIImage(named: "cheaseIcon")!, "Сыры & Мясо"),
                                   Category(UIImage(named: "zakuskiIcon")!, "Закуски"),
+                                  Category(UIImage(named: "gorZacuskiIcon")!, "Горячие закуски"),
                                   Category(UIImage(named: "salatIcon")!, "Салаты"),
                                   Category(UIImage(named: "yagodiIcon")!, "Ягоды & Фрукты"),
                                   Category(UIImage(named: "hlebIcon")!, "Брускетты на нашей чиабатте"),
+                                  Category(UIImage(named: "staikIcon")!, "Стейки"),
                                   Category(UIImage(named: "garnieIcon")!, "Гарниры & Овощи"),
+                                  Category(UIImage(named: "pastaIcon")!, "Паста & Ризотто"),
                                   Category(UIImage(named: "desertIcon")!, "Десерты"),
                                   Category(UIImage(named: "aquariumIcon")!, "Аквариум"),
                                   Category(UIImage(named: "supIcon")!, "Супы"),
                                   Category(UIImage(named: "meatIcon")!, "Мясо"),
                                   Category(UIImage(named: "fishIcon")!, "Рыба"),
                                   Category(UIImage(named: "seafoodIcon")!, "Морепродукты"),
-                                  Category(UIImage(named: "vipechkaIcon")!, "Выпечка"),
-                                  Category(UIImage(named: "desertIcon")!, "Десерт"),
-                                  Category(UIImage(named: "otherIcon")!, "Другое")]
-    
+                                  Category(UIImage(named: "pticaIcon")!, "Птица"),
+                                  Category(UIImage(named: "vipechkaIcon")!, "Выпечка")
+    ]
     var mealsCoreData: [Meal] = []
     var splitedMeals: [[Meal]] = []
     
@@ -45,15 +47,15 @@ class FiltersViewController: UIViewController {
     }
     
     func fecthData() {
-            DatabaseManager.instance.fetchData { (done, meals) in
-                if done, let allMeal = meals {
-                    
-                    self.mealsCoreData = allMeal
-                    self.splitedMeals = splitMealsToSections(self.mealsCoreData)
-                }
+        DatabaseManager.instance.fetchData { (done, meals) in
+            if done, let allMeal = meals {
+                
+                self.mealsCoreData = allMeal
+                self.splitedMeals = splitMealsToSections(self.mealsCoreData)
             }
-            tv.reloadData()
         }
+        tv.reloadData()
+    }
     
     func createNewMeals() {
         
@@ -108,6 +110,10 @@ class FiltersViewController: UIViewController {
             $0.category == "ЗАКУСКИ"
         }
         result.append(eats)
+        let hotEats = mealsArray.filter {
+            $0.category == "ГОРЯЧИЕ ЗАКУСКИ"
+        }
+        result.append(hotEats)
         let salats = mealsArray.filter {
             $0.category == "САЛАТЫ"
         }
@@ -120,10 +126,18 @@ class FiltersViewController: UIViewController {
             $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
         }
         result.append(bruskets)
+        let steaks = mealsArray.filter {
+            $0.category == "ФИРМЕННЫЕ СТЕЙКИ"
+        }
+        result.append(steaks)
         let vedjetabls = mealsArray.filter {
             $0.category == "ГАРНИРЫ & ОВОЩИ"
         }
         result.append(vedjetabls)
+        let pasta = mealsArray.filter {
+            $0.category == "ПАСТА & РИЗОТТО"
+        }
+        result.append(pasta)
         let diserts = mealsArray.filter {
             $0.category == "ДЕСЕРТЫ"
         }
@@ -148,18 +162,18 @@ class FiltersViewController: UIViewController {
             $0.category == "МОРЕПРОДУКТЫ"
         }
         result.append(seaFood)
+        let ptica = mealsArray.filter {
+            $0.category == "ПТИЦА"
+        }
+        result.append(ptica)
         let bake = mealsArray.filter {
             $0.category == "ВЫПЕЧКА"
         }
         result.append(bake)
-        let desert = mealsArray.filter {
-            $0.category == "ДЕСЕРТ"
-        }
-        result.append(desert)
         
         return result
     }
-
+    
 }
 
 extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {

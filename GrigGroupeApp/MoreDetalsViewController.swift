@@ -41,7 +41,16 @@ class MoreDetalsViewController: UIViewController {
         nameLable.text = selectedMeal.name
         descriptionLable.text = selectedMeal.desc
         priceLable.text = "\(selectedMeal.price)₽"
-        fotoImage.image = UIImage(named: selectedMeal.imageName!) ?? UIImage(named: "defaultImage")
+        if let imageForMeal = UIImage(named: selectedMeal.imageName!) {
+            fotoImage.image = imageForMeal
+        } else {
+            for constraint in self.fotoImage.constraints {
+                if constraint.identifier == "imageHeight" {
+                   constraint.constant = 0
+                }
+            }
+            fotoImage.layoutIfNeeded()
+        }
         countLabel.text = String(selectedMeal.count)
         countStepper.value = Double(selectedMeal.count)
         

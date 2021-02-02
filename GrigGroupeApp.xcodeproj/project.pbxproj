@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3718DF4B256A4EBB00FE34C7 /* menu.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3718DF4A256A4EBB00FE34C7 /* menu.csv */; };
+		3718DF4B256A4EBB00FE34C7 /* menuOld.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3718DF4A256A4EBB00FE34C7 /* menuOld.csv */; };
 		372ED8B2255DB589008B3C00 /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B1255DB589008B3C00 /* MealObject.swift */; };
 		372ED8BA255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8B8255DC35F008B3C00 /* GrigGroupeApp.xcdatamodeld */; };
 		372ED8BD255DC3C3008B3C00 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */; };
@@ -25,6 +25,8 @@
 		74E327E725473C29005C4A45 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E625473C29005C4A45 /* ProfileViewController.swift */; };
 		74E327EA254745ED005C4A45 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E327E9254745ED005C4A45 /* TableViewCell.swift */; };
 		A413B8796AA19EC016FE407F /* Pods_GrigGroupeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE939B4843FE0BAC22A6D2F8 /* Pods_GrigGroupeApp.framework */; };
+		FA076ADD25C33970005EA464 /* menu.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA076ADC25C33970005EA464 /* menu.csv */; };
+		FA4F4F1525C9DE06000696ED /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F4F1425C9DE06000696ED /* CheckoutViewController.swift */; };
 		FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */; };
 		FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA98A329257969D00027D290 /* GoogleService-Info.plist */; };
 		FAA3ED4125893884005DDAE1 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */; };
@@ -39,7 +41,7 @@
 /* Begin PBXFileReference section */
 		20E760A30B35620A777BCF88 /* Pods-GrigGroupeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrigGroupeApp.debug.xcconfig"; path = "Target Support Files/Pods-GrigGroupeApp/Pods-GrigGroupeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		21302454C3EE39213B882170 /* Pods-GrigGroupeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrigGroupeApp.release.xcconfig"; path = "Target Support Files/Pods-GrigGroupeApp/Pods-GrigGroupeApp.release.xcconfig"; sourceTree = "<group>"; };
-		3718DF4A256A4EBB00FE34C7 /* menu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = menu.csv; sourceTree = "<group>"; };
+		3718DF4A256A4EBB00FE34C7 /* menuOld.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = menuOld.csv; sourceTree = "<group>"; };
 		372ED8B1255DB589008B3C00 /* MealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
 		372ED8B9255DC35F008B3C00 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		372ED8BC255DC3C3008B3C00 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		74E327E025473AEB005C4A45 /* ShopingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingViewController.swift; sourceTree = "<group>"; };
 		74E327E625473C29005C4A45 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74E327E9254745ED005C4A45 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FA076ADC25C33970005EA464 /* menu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = menu.csv; sourceTree = "<group>"; };
+		FA4F4F1425C9DE06000696ED /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		FA98A329257969D00027D290 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA3ED3F25893884005DDAE1 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 				74751E232555B1F500ABD4DC /* infoTableViewController.swift */,
 				FA678FB6256D925F0019BFD1 /* FavoritesTableViewController.swift */,
 				FABFE36525869FDA00F9685B /* FiltersViewController.swift */,
+				FA4F4F1425C9DE06000696ED /* CheckoutViewController.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -122,7 +127,8 @@
 				372ED8B1255DB589008B3C00 /* MealObject.swift */,
 				74E327A42547276D005C4A45 /* AppDelegate.swift */,
 				FAF881A52561AAA00045ACB7 /* tableofmeals.csv */,
-				3718DF4A256A4EBB00FE34C7 /* menu.csv */,
+				FA076ADC25C33970005EA464 /* menu.csv */,
+				3718DF4A256A4EBB00FE34C7 /* menuOld.csv */,
 				74078F7E254B63FE00A242F8 /* classes */,
 				74E327A62547276D005C4A45 /* SceneDelegate.swift */,
 				74E327AA2547276D005C4A45 /* Main.storyboard */,
@@ -230,7 +236,8 @@
 				FAA3ED4225893884005DDAE1 /* MenuTableViewCell.xib in Resources */,
 				FA98A32A257969D00027D290 /* GoogleService-Info.plist in Resources */,
 				FAF881A62561AAA00045ACB7 /* tableofmeals.csv in Resources */,
-				3718DF4B256A4EBB00FE34C7 /* menu.csv in Resources */,
+				3718DF4B256A4EBB00FE34C7 /* menuOld.csv in Resources */,
+				FA076ADD25C33970005EA464 /* menu.csv in Resources */,
 				74E327AC2547276D005C4A45 /* Main.storyboard in Resources */,
 				74D565892549E70B00A33B3A /* Media.xcassets in Resources */,
 			);
@@ -293,6 +300,7 @@
 				FAA3ED4625894AD6005DDAE1 /* Category.swift in Sources */,
 				74E327A52547276D005C4A45 /* AppDelegate.swift in Sources */,
 				FA678FB7256D925F0019BFD1 /* FavoritesTableViewController.swift in Sources */,
+				FA4F4F1525C9DE06000696ED /* CheckoutViewController.swift in Sources */,
 				74751E242555B1F500ABD4DC /* infoTableViewController.swift in Sources */,
 				74E327A72547276D005C4A45 /* SceneDelegate.swift in Sources */,
 				FAEB3CA425B2DED5005D9971 /* CollectionViewCell.swift in Sources */,
@@ -453,6 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8R6WQM9KWN;
 				INFOPLIST_FILE = GrigGroupeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -460,12 +469,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -477,6 +486,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8R6WQM9KWN;
 				INFOPLIST_FILE = GrigGroupeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -484,12 +494,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolinskaya.ferma;
 				PRODUCT_NAME = "Ferma Restourant";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

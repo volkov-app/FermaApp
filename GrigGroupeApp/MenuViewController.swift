@@ -40,6 +40,10 @@ class MenuViewController: UIViewController {
             $0.category == "ЗАКУСКИ"
         }
         result.append(eats)
+        let hotEats = mealsArray.filter {
+            $0.category == "ГОРЯЧИЕ ЗАКУСКИ"
+        }
+        result.append(hotEats)
         let salats = mealsArray.filter {
             $0.category == "САЛАТЫ"
         }
@@ -52,10 +56,18 @@ class MenuViewController: UIViewController {
             $0.category == "БРУСКЕТТЫ НА НАШЕЙ ЧИАБАТТЕ"
         }
         result.append(bruskets)
+        let steaks = mealsArray.filter {
+            $0.category == "ФИРМЕННЫЕ СТЕЙКИ"
+        }
+        result.append(steaks)
         let vedjetabls = mealsArray.filter {
             $0.category == "ГАРНИРЫ & ОВОЩИ"
         }
         result.append(vedjetabls)
+        let pasta = mealsArray.filter {
+            $0.category == "ПАСТА & РИЗОТТО"
+        }
+        result.append(pasta)
         let diserts = mealsArray.filter {
             $0.category == "ДЕСЕРТЫ"
         }
@@ -80,14 +92,14 @@ class MenuViewController: UIViewController {
             $0.category == "МОРЕПРОДУКТЫ"
         }
         result.append(seaFood)
+        let ptica = mealsArray.filter {
+            $0.category == "ПТИЦА"
+        }
+        result.append(ptica)
         let bake = mealsArray.filter {
             $0.category == "ВЫПЕЧКА"
         }
         result.append(bake)
-        let desert = mealsArray.filter {
-            $0.category == "ДЕСЕРТ"
-        }
-        result.append(desert)
         
         return result
     }
@@ -256,7 +268,48 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameCell.text = meal.name
         cell.priceCell.text = "\(meal.price)₽"
         cell.descriptionCell.text = meal.desc
-        cell.imageInCell.image = UIImage(named: meal.imageName!) ?? UIImage(named: "defaultImage")
+        var defaultImage: UIImage!
+        switch categoryIndex {
+        case 0:
+            defaultImage = UIImage(named: "pizzaIcon")
+        case 1:
+            defaultImage = UIImage(named: "cheaseIcon")
+        case 2:
+            defaultImage = UIImage(named: "hlebIcon")
+        case 3:
+            defaultImage = UIImage(named: "gorZacuskiIcon")
+        case 4:
+            defaultImage = UIImage(named: "categoryIcon")
+        case 5:
+            defaultImage = UIImage(named: "yagodiIcon")
+        case 6:
+            defaultImage = UIImage(named: "hlebIcon")
+        case 7:
+            defaultImage = UIImage(named: "staikIcon")
+        case 8:
+            defaultImage = UIImage(named: "garnieIcon")
+        case 9:
+            defaultImage = UIImage(named: "pastaIcon")
+        case 10:
+            defaultImage = UIImage(named: "desertIcon")
+        case 11:
+            defaultImage = UIImage(named: "aquariumIcon")
+        case 12:
+            defaultImage = UIImage(named: "supIcon")
+        case 13:
+            defaultImage = UIImage(named: "meatIcon")
+        case 14:
+            defaultImage = UIImage(named: "fishIcon")
+        case 15:
+            defaultImage = UIImage(named: "seafoodIcon")
+        case 16:
+            defaultImage = UIImage(named: "pticaIcon")
+        case 17:
+            defaultImage = UIImage(named: "hlebIcon")
+        default:
+            break
+        }
+        cell.imageInCell.image = UIImage(named: meal.imageName!) ?? defaultImage
         cell.isAdded = meal.isAdded
 
         if meal.isAdded {

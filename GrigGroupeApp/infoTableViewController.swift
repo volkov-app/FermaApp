@@ -9,7 +9,7 @@ import UIKit
 
 class infoTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var images: [UIImage] = [#imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "3")]
+    var images: [UIImage] = [#imageLiteral(resourceName: "1.JPG"),#imageLiteral(resourceName: "2.JPG"),#imageLiteral(resourceName: "3.JPG"),#imageLiteral(resourceName: "4.JPG"),#imageLiteral(resourceName: "5.JPG"),#imageLiteral(resourceName: "6.JPG"),#imageLiteral(resourceName: "7.JPG"),#imageLiteral(resourceName: "8.JPG"),#imageLiteral(resourceName: "9.JPG"),#imageLiteral(resourceName: "10.JPG"),#imageLiteral(resourceName: "11.JPG")]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -21,6 +21,21 @@ class infoTableViewController: UITableViewController, UICollectionViewDelegate, 
         cell.image.image = images[indexPath.row]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let showAlert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
+        imageView.image = images[indexPath.row] // Your image here...
+        showAlert.view.addSubview(imageView)
+        let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
+        let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+        showAlert.view.addConstraint(height)
+        showAlert.view.addConstraint(width)
+        showAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            // your actions here...
+        }))
+        self.present(showAlert, animated: true, completion: nil)
     }
     
 
@@ -36,6 +51,14 @@ class infoTableViewController: UITableViewController, UICollectionViewDelegate, 
 
     @IBAction func insta(_ sender: UIButton) {
         guard let url = URL(string: "https://instagram.com/ferma_restaurant") else { return }
+        UIApplication.shared.open(url)
+    }
+    @IBAction func tripAdvisor(_ sender: UIButton) {
+        guard let url = URL(string: "https://www.tripadvisor.ru/Restaurant_Review-g1602418-d12543802-Reviews-Ferma-Serpukhov_Moscow_Oblast_Central_Russia.html") else { return }
+        UIApplication.shared.open(url)
+    }
+    @IBAction func vk(_ sender: UIButton) {
+        guard let url = URL(string: "https://vk.com/restaurant_ferma") else { return }
         UIApplication.shared.open(url)
     }
     // MARK: - Table view data source
